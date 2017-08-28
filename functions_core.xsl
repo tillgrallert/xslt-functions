@@ -10,7 +10,7 @@
     
     <xsl:output name="html" method="html" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
     <xsl:output name="xml" method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="no"/>
-
+    
     <!-- this stylesheet provides various functions to other stylesheets.-->
     <xsl:include href="functions_strings.xsl"/>
     <xsl:include href="functions_dates.xsl"/>
@@ -26,7 +26,9 @@
     
     <!-- links to master files -->
     <xsl:param name="pgSecondary" select="document('/BachUni/projekte/XML/Sente XML exports/all/SecondaryLitAmended 140819.TSS.xml')"/>
-    <xsl:param name="pgSources" select="document('/BachUni/projekte/XML/Sente XML exports/all/SourcesClean 160620.TSS.xml')"/>
+    <!--    <xsl:param name="pgSources-old" select="document('/BachUni/projekte/XML/Sente XML exports/all/SourcesClean 160620.TSS.xml')"/>-->
+    <!-- select a folder with Sente XML files -->
+    <xsl:param name="pgSources" select="collection('/Volumes/Dessau HD/BachUni/BachBibliothek/GitHub/Sente/tss_data/BachSources?select=*.TSS.xml')"/>
     <xsl:param name="pgSourcesUnescaped" select="document('/BachUni/projekte/XML/Sente XML exports/all/SourcesClean 151005 unescaped.TSS.xml')"/>
     <xsl:param name="pgNyms" select="document('/BachUni/projekte/XML/TEI XML/masterFiles/NymMaster.TEIP5.xml')"/>
     
@@ -34,12 +36,12 @@
     <!-- it is called as collation="http://saxon.sf.net/collation?rules={encode-for-uri($sortIjmes)}" -->
     <xsl:variable name="sortIjmes"
         select="'&lt; ʾ,ʿ &lt; a,A &lt; ā, Ā &lt; b,B &lt; c,C &lt; d,D &lt; ḍ, Ḍ &lt; e,é,è,E,É,È &lt; f,F &lt; g,G &lt; ġ, Ġ &lt; h,H &lt; ḥ, Ḥ &lt; ḫ, Ḫ &lt; i,I &lt; ī, Ī  &lt; j,J &lt; k,K &lt; ḳ, Ḳ &lt; l,L &lt; m,M &lt; n,N &lt; o,O &lt; p,P &lt; q,Q &lt; r,R &lt; s,S &lt; ṣ, Ṣ &lt; t,T &lt; ṭ, Ṭ &lt; ṯ, Ṯ &lt; u,U &lt; ū, Ū &lt; v,V &lt; w,W &lt; x,X &lt; y,Y &lt; z, Z &lt; ẓ, Ẓ'"/>
-
+    
     <!-- this variable specifies a sort order for reference whether they are archival sources, periodicals, or secondary literatur -->
     <!-- '&lt; Archival Book Chapter, Archival File, Archival Journal Entry, Archival Letter, Archival Material, Bill, Photograph, Maps &lt; Archival Periodical, Archival Periodical Article, Newspaper article &lt; Book, Book Chapter, Edited Book, Journal Article, Thesis, Manuscript, Other' -->
     <!-- it is called as collation="http://saxon.sf.net/collation?rules={encode-for-uri($sortIjmes)}" -->
     <xsl:variable name="sortLiterature" select="'&lt; A, P, M &lt; N &lt; B, E, J, T, O'"/>
-
+    
     <!-- this variable provides a collation to normalize the IJMES transliteration -->
     <xsl:variable name="normIjmes"
         select="'&lt; ʾ,ʿ &lt; a,A, ā, Ā &lt; b,B &lt; c,C, ç, Ç &lt; d,D, ḍ, Ḍ &lt; e,é,è,E,É,È &lt; f,F &lt; g,G , ġ, Ġ, ğ, Ğ &lt; h,H , ḥ, Ḥ , ḫ, Ḫ &lt; i,I , ī, Ī  &lt; j,J &lt; k,K , ḳ, Ḳ, q, Q &lt; l,L &lt; m,M &lt; n,N &lt; o,O &lt; p,P &lt; r,R &lt; s,S , ṣ, Ṣ, š, Š, ş, Ş &lt; t,T , ṭ, Ṭ , ṯ, Ṯ &lt; u,U , ū, Ū &lt; v,V &lt; w,W &lt; x,X &lt; y,Y &lt; z, Z , ẓ, Ẓ, ż, Ż, ẕ, Ẕ'"/>
@@ -52,6 +54,6 @@
     </xsl:variable>
     <xsl:variable name="vGeoNamesDiac" select="'’‘áḨḨḩŞşŢţz̧'"/>
     <xsl:variable name="vGeoNamesIjmes" select="'ʾʿāḤḤḥṢṣṬṭẓ'"/>
-
+    
     <xsl:variable name="vArabicPossessive" select="'uhu,uhā,uhumā,uhum,uhun,ihi,ihā,ihimā,ihim,ihin,ahu,ahā,ahumā,ahum,ahun'"/>
 </xsl:stylesheet>
