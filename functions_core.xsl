@@ -25,9 +25,8 @@
     <xsl:include href="Html2Mmd.xsl"/>-->
     
     <!-- links to master files -->
-    <xsl:param name="pgSecondary" select="document('/BachUni/projekte/XML/Sente XML exports/all/SecondaryLitAmended 140819.TSS.xml')"/>
-    <!--    <xsl:param name="pgSources-old" select="document('/BachUni/projekte/XML/Sente XML exports/all/SourcesClean 160620.TSS.xml')"/>-->
     <!-- select a folder with Sente XML files. As per other transformations they are already unescaped -->
+    <xsl:param name="pgSecondary" select="collection('/Volumes/Dessau HD/BachUni/BachBibliothek/GitHub/Sente/tss_data/BachSecondary?select=*.TSS.xml')"/>
     <xsl:param name="pgSources" select="collection('/Volumes/Dessau HD/BachUni/BachBibliothek/GitHub/Sente/tss_data/BachSources?select=*.TSS.xml')"/>
     <!--    <xsl:param name="pgSourcesUnescaped" select="document('/BachUni/projekte/XML/Sente XML exports/all/SourcesClean 151005 unescaped.TSS.xml')"/>-->
     <xsl:param name="pgNyms" select="document('/BachUni/projekte/XML/TEI XML/masterFiles/NymMaster.TEIP5.xml')"/>
