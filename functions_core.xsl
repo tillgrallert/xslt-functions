@@ -16,7 +16,10 @@
     <xsl:include href="functions_dates.xsl"/>
     <xsl:include href="functions_currencies.xsl"/>
     <xsl:include href="functions_arabic-transcription.xsl"/>
-    <xsl:include href="https://rawgit.com/tillgrallert/tss_tools/master/tss_citation-functions.xsl"/>
+    <!-- local paths work much better! -->
+    <xsl:include href="../Sente/tss_tools/tss_core-functions.xsl"/>
+    <xsl:include href="../Sente/tss_tools/tss_citation-functions.xsl"/>
+<!--    <xsl:include href="https://rawgit.com/tillgrallert/tss_tools/master/tss_citation-functions.xsl"/>-->
     
     
     <!--<xsl:include href="TeiMarkUpFunctions%20v1.xsl"/>
@@ -29,7 +32,7 @@
     <xsl:param name="pgSecondary" select="collection('/Volumes/Dessau HD/BachUni/BachBibliothek/GitHub/Sente/tss_data/BachSecondary?select=*.TSS.xml')"/>
     <xsl:param name="pgSources" select="collection('/Volumes/Dessau HD/BachUni/BachBibliothek/GitHub/Sente/tss_data/BachSources?select=*.TSS.xml')"/>
     <!--    <xsl:param name="pgSourcesUnescaped" select="document('/BachUni/projekte/XML/Sente XML exports/all/SourcesClean 151005 unescaped.TSS.xml')"/>-->
-    <xsl:param name="pgNyms" select="document('/BachUni/projekte/XML/TEI XML/masterFiles/NymMaster.TEIP5.xml')"/>
+    <xsl:param name="pgNyms" select="document('/BachUni/programming/XML/TEI XML/masterFiles/NymMaster.TEIP5.xml')"/>
     
     <!-- this variable specifies the sort order according to the IJMES transliteration of Arabic -->
     <!-- it is called as collation="http://saxon.sf.net/collation?rules={encode-for-uri($sortIjmes)}" -->
