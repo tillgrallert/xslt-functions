@@ -27,6 +27,9 @@
     <xsl:include href="SenteFunctions%20v1.xsl"/>
     <xsl:include href="Html2Mmd.xsl"/>-->
     
+    <!-- toggle debugging mode -->
+    <xsl:param name="p_debug" select="true()"/>
+    
     <!-- links to master files -->
     <!-- select a folder with Sente XML files. As per other transformations they are already unescaped -->
     <xsl:param name="pgSecondary" select="collection('/Volumes/Dessau HD/BachUni/BachBibliothek/GitHub/Sente/tss_data/BachSecondary?select=*.TSS.xml')"/>
