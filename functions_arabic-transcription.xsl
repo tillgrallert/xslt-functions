@@ -6,6 +6,9 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0">
     
+    <!-- the templates/ functions in this stylesheet aim at automatic re-translation from Arabic in Latin transcription to Arabic in Arabic script -->
+    <!-- in order to work, this stylesheet needs to be loaded from functions_core.xsl -->
+    
     <!-- the templates assume the IJMES system of transcription -->
     
     <!-- Issues:
@@ -114,7 +117,7 @@
         </xsl:analyze-string>
     </xsl:template>
     
-    <!-- this template takes individual words as input and splits them into syllabels / radicals -->
+    <!-- this template takes individual words as input and splits them into syllables / radicals -->
     <xsl:template name="funcStringArabicSplitRadicals">
         <xsl:param name="pInput"/>
         <xsl:message>
